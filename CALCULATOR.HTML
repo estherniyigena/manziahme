@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <style>
+        body {
+           
+            background-image: url("peace.jpg");
+        shape-image-threshold: var(200px);
+         background-size:cover; 
+        }
+        .calculator {
+            width: 200px;
+            height:370px;
+            margin: 60px auto;
+            border: 1px solid hwb(295 6% 5%);
+            padding: 10px;
+            border-radius: 10px;
+            background-color: hsla(228, 86%, 51%, 0.603);
+        }
+        input[type="button"] {
+            width: 50px;
+            height: 40px;
+            margin: 6px;
+            padding:4px;
+            font-size: 25px;
+        }
+        input[type="text"] {
+            width: 200px;
+            height: 40px;
+            margin-bottom:10px;
+            font-size: 30px;
+            text-align: left;
+        }
+    
+        
+    </style>
+</head>
+<body>
+<div class="calculator">
+    <input type="text" id="display" readonly><br>
+    <input type="button" value="1" onclick="appendToDisplay('1')">
+    <input type="button" value="2" onclick="appendToDisplay('2')">
+<input type="button" value="3" onclick="appendToDisplay('3')"><br>
+    <input type="button" value="4" onclick="appendToDisplay('4')">
+    <input type="button" value="5" onclick="appendToDisplay('5')">
+    <input type="button" value="6" onclick="appendToDisplay('6')"><br>
+    <input type="button" value="7" onclick="appendToDisplay('7')">
+    <input type="button" value="8" onclick="appendToDisplay('8')">
+    <input type="button" value="9" onclick="appendToDisplay('9')"><br>
+    <input type="button" value="0" onclick="appendToDisplay('0')">
+    <input type="button" value="*" onclick="appendtoDisplay('*')">
+    <input type="button" value="+" onclick="appendToDisplay('+')"><br>
+    <input type="button" value="-" onclick="appendToDisplay('-')"> 
+    <input type="button" value=" &#247;" onclick="appendToDisplay(' /')">
+
+<input type="button" value="." onclick="appendToDisplay('.')"><br>
+    <input type="button" value="=" onclick="calculate()">
+    
+    <input type="button" value="&#9003;" onclick="deleteLastChar()">
+</div>
+<script>
+    
+    // Function to append a character to the display
+function appendToDisplay(char) {
+    var display = document.getElementById("display");
+    display.value += char;
+}
+
+// Function to delete the last character from the display
+function deleteLastChar() {
+    var display = document.getElementById("display");
+    display.value = display.value.slice(0, -1);
+}
+
+// Function to calculate the result
+function calculate() {
+    var display = document.getElementById("display");
+    try {
+        display.value = eval(display.value);
+    } catch (error) {
+        display.value = "Error";
+    }
+}  
+</script>
+</body>
+</html>
